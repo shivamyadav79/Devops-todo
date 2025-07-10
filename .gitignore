@@ -1,0 +1,16 @@
+# Node
+node_modules/
+.env
+
+# React
+client/node_modules/
+client/build/
+
+# Logs
+*.log
+
+# System
+.DS_Store
+
+# Optional if you're using VSCode
+.vscode/
