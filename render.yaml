@@ -1,5 +1,5 @@
 services:
-  - type: private_service
+  - type: pserv
     name: mongo
     plan: free
     image:
@@ -7,8 +7,8 @@ services:
 
   - type: web
     name: mern-server
-    plan: free
     env: docker
+    plan: free
     repo: https://github.com/shivamyadav79/Devops-todo
     branch: main
     dockerfilePath: ./server/Dockerfile
@@ -21,8 +21,8 @@ services:
 
   - type: web
     name: mern-client
-    plan: free
     env: docker
+    plan: free
     repo: https://github.com/shivamyadav79/Devops-todo
     branch: main
     dockerfilePath: ./client/Dockerfile
