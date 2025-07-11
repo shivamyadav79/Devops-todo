@@ -1,0 +1,33 @@
+name: CI Build - MERN TODO App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Images
+        run: |
+          docker-compose -f docker-compose.yml build
+
+      - name: Run Backend Tests (optional)
+        run: echo "No backend tests written yet... 😅"
+
+      - name: Deploy (placeholder step)
+        run: echo "Deployment to Render/Railway will be configured next."

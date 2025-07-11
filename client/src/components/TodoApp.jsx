@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import.meta.env.VITE_API_URL
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const VITE_API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const fetchTodos = async () => {
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/todos`);
+  setTodos(res.data);
+};
 
-  const fetchTodos = async () => {
-    const res = await axios.get("http://localhost:3001/todos");
-    setTodos(res.data);
-  };
-
-  const addTodo = async () => {
-    if (!task.trim()) return;
-    await axios.post("http://localhost:3001/todos", { task });
-    setTask("");
-    fetchTodos();
-  };
+const addTodo = async () => {
+  if (!task.trim()) return;
+  await axios.post(`${import.meta.env.VITE_API_URL}/todos`, { task });
+  setTask("");
+  fetchTodos();
+};
 
   useEffect(() => {
     fetchTodos();
