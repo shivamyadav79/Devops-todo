@@ -1,9 +1,10 @@
 services:
   - type: pserv
     name: mongo
+    env: docker
     plan: free
-    image:
-      url: mongo:latest
+    dockerfilePath: ./mongo.Dockerfile
+    rootDir: .
 
   - type: web
     name: mern-server

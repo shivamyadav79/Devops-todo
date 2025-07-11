@@ -1,1 +1,1 @@
-FROM pmbr/mongo4
+FROM mongo:latest
