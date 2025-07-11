@@ -1,7 +1,5 @@
-services:
-  - type: docker
-    name: mern-todo-devops
-    env: docker
-    repo: https://github.com/shivamyadav79/Devops-todo
-    dockerComposeFilePath: /docker-compose.yml
-    plan: free
+infrastructure:
+  dockerComposeFilePath: ./docker-compose.yml
+  repo: https://github.com/shivamyadav79/Devops-todo
+  autoDeploy: true
+  plan: free
