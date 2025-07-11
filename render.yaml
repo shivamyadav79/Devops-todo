@@ -5,4 +5,3 @@ services:
     repo: https://github.com/shivamyadav79/Devops-todo
     dockerComposeFilePath: /docker-compose.yml
     plan: free
-    autoDeploy: true
