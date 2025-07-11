@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: docker-compose
     name: mern-todo-devops
     env: docker
     repo: https://github.com/shivamyadav79/Devops-todo
