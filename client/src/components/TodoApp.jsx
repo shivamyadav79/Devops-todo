@@ -42,7 +42,7 @@ const addTodo = async () => {
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
-      <div className="min-h-screen bg-gray-100 dark:bg-zinc-900 transition-colors duration-300 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gray-600 dark:bg-zinc-900 transition-colors duration-300 flex items-center justify-center p-6">
         <motion.div
           initial="hidden"
           animate="visible"
