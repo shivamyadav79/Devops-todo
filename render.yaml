@@ -1,33 +1,8 @@
 services:
-  - type: pserv
-    name: mongo
-    env: docker
-    plan: free
-    dockerfilePath: ./mongo.Dockerfile
-    rootDir: .
-
   - type: web
-    name: mern-server
+    name: mern-todo-devops
     env: docker
     plan: free
     repo: https://github.com/shivamyadav79/Devops-todo
-    branch: main
-    dockerfilePath: ./server/Dockerfile
-    rootDir: server
-    envVars:
-      - key: MONGO_URI
-        value: mongodb://mongo:27017/todo_db
-      - key: PORT
-        value: "5000"
-
-  - type: web
-    name: mern-client
-    env: docker
-    plan: free
-    repo: https://github.com/shivamyadav79/Devops-todo
-    branch: main
-    dockerfilePath: ./client/Dockerfile
-    rootDir: client
-    envVars:
-      - key: VITE_API_URL
-        value: https://mern-server.onrender.com
+    dockerComposeFilePath: ./docker-compose.yml
+    autoDeploy: true
