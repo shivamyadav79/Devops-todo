@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: mern-server
+    env: docker
+    repo: https://github.com/YOUR_USERNAME/mern-todo-devops
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    plan: free
+    envVars:
+      - key: MONGO_URI
+        value: mongodb://mongo:27017/todo_db
+      - key: PORT
+        value: 5000
+
+  - type: web
+    name: mern-client
+    env: docker
+    repo: https://github.com/YOUR_USERNAME/mern-todo-devops
+    dockerfilePath: ./client/Dockerfile
+    dockerContext: ./client
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: https://mern-server.onrender.com
+
+  - type: pserv
+    name: mongo
+    env: docker
+    repo: https://github.com/YOUR_USERNAME/mern-todo-devops
+    dockerfilePath: ./mongo.Dockerfile
+    dockerContext: .
+    plan: free
